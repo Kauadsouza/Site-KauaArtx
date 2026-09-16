@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Press_Start_2P } from 'next/font/google';
+import { getLocale } from 'next-intl/server';
 import { SITE_URL, SITE_NAME, SITE_BRAND, SOCIAL_PROFILES } from '@/lib/site';
 import './globals.css';
 
@@ -61,10 +62,15 @@ const personJsonLd = {
   sameAs: SOCIAL_PROFILES,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // O layout raiz fica acima de [locale], então o idioma vem da requisição.
+  // Fixar "pt" aqui fazia /en se declarar como português para leitores de tela
+  // e para o Google.
+  const locale = await getLocale();
+
   return (
     <html
-      lang="pt"
+      lang={locale}
       className={`${GeistSans.variable} ${GeistMono.variable} ${pixelFont.variable}`}
     >
       <body>
