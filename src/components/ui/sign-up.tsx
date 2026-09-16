@@ -386,7 +386,10 @@ useEffect(() => {
 
         <div className={cn( "fixed top-4 left-4 z-20 flex items-center", logo ? "gap-2" : "gap-0", "md:left-1/2 md:-translate-x-1/2" )}>
             {logo}
-            <h1 className="text-base font-bold text-foreground">{brandName}</h1>
+            {/* Rótulo da marca, não o título da página: como o portal aparece
+                antes do hero, um <h1> aqui virava o título que o Google lia da
+                home — "ARTX" no lugar da manchete real. */}
+            <p className="text-base font-bold text-foreground">{brandName}</p>
         </div>
 
         <div className={cn("flex w-full flex-1 h-full items-center justify-center relative overflow-hidden", !backgroundImageUrl && "bg-card")}>
