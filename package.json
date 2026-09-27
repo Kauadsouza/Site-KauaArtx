@@ -57,7 +57,7 @@
     "tailwindcss": "^4.1.7",
     "topojson-server": "^3.0.1",
     "topojson-simplify": "^3.0.3",
-    "typescript": "^5.8.3",
+    "typescript": "^7.0.2",
     "vitest": "^4.1.10",
     "world-countries": "^5.1.0"
   },
